@@ -1,0 +1,26 @@
+{
+  "name": "pagination",
+  "version": "1.0.0",
+  "description": "angularJs paging directive",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wusihang/pagination.git"
+  },
+  "author": "wusihang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wusihang/pagination/issues"
+  },
+  "homepage": "https://github.com/wusihang/pagination#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "jquery": "^3.1.1",
+    "lodash": "^4.17.4",
+    "underscore": "^1.8.3"
+  }
+}
