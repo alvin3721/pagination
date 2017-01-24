@@ -8,7 +8,11 @@ angular.module('paging.directive', []).directive('ngPagination', function () {
         restrict: 'E',
         // this should be replaced by the place where the 'paging.html' file  at.
         //在使用时，这个地址需要替换成paging.html在真实项目中的位置
-        templateUrl: '../src/paging.html',
+        //templateUrl: '../src/paging.html',
+
+        //this is particular use with my test,you may not necessary to do like this.Instead, in your own application , you can just config like above line.
+        //此处的配置仅仅是用于直接打开文件的测试，在真实应用中，可以配置成上面的样子
+        templateUrl:'pagingTemplate',
         replace: true,
         //introduction at test/index.html  <ng:pagination>
         //介绍在 test/index.html  的<ng:pagination>元素上方

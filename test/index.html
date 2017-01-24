@@ -11,6 +11,38 @@
     <script src="../test/index-controller.js" module="index.controller"></script>
     <!-- defer here is to bootstrap Angular Modules later. the reason of importing this file is to load modules whatever you want.-->
     <script src="../bootstrapApp.js" defer async="true"></script>
+
+    <!-- In order to test with file protocol,ng-template is used here. In your own real application environment,you may not necessary to do like this. -->
+    <!-- 为了使得在直接打开文件的情况下能够测试通过，这里使用了ng-template;在真实应用中，你可以直接在指令中引入paging.html的位置即可 -->
+    <script type='text/ng-template' id='pagingTemplate'>
+        <div>
+            <div class="pagingBar ng-hide" ng-show="showPaging">
+                <div>
+                    <div class="floatRight pagingBtn">
+                        <a class="paging" ng-click="firstClicked()"><span class="pageArrIco">&lt;&lt;</span></a>
+                        <a class="paging" ng-click="preClicked()">&lt;</a>
+                        <a ng-repeat="page in pages" class="{{page.clazz}} paging" ng-click="pagingClicked()">{{page.index}}</a>
+                        <a class="paging" ng-click="nextClicked()">&gt;</a>
+                        <a class="paging" ng-click="lastClicked()"><span
+                                class="pageArrIco">&gt;&gt;</span></a>
+                        <span class="paging marginLeft10">跳转到</span>
+                        <input type="text" style="padding: 5px 6px 8px 6px;width:40px;" ng-model="goPage">
+                        <a class="paging" ng-click="goClicked()">GO</a>
+                    </div>
+
+                    共有 <span class="highLight">{{totalCount}}</span> 条, 每页
+                    <select class="pagingSelect" ng-change="pageSizeChanged(pageSize)" ng-model="pageSize" ng-options="option for option in pageSizeOption"/>
+                    条
+                </div>
+
+            </div>
+            <div ng-show="!hasRecord" class="ng-hide">
+                <span class="noRecord"></span>
+            </div>
+        </div>
+    </script>
+
+
     <title>this is paging directive</title>
 </head>
 <body>
