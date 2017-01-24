@@ -1,0 +1,17 @@
+{
+  "name": "pagination",
+  "description": "angularJs paging directive",
+  "main": "",
+  "authors": [
+    "wusihang"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/wusihang/pagination",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

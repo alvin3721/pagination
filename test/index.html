@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../src/paging.css"/>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <script src="../vendors/3rd/angular/angular.js"></script>
+    <!-- module attribute is set by angular module name witch is defined by yourself. -->
+    <!-- module属性是自定义的属性，其值为要引入的angularJs模块名,该值用于最终在bootstrapApp.js中启动多个自定义模块 -->
+    <script src="../src/pagingDirective.js" module="paging.directive"></script>
+    <script src="../test/index-controller.js" module="index.controller"></script>
+    <!-- defer here is to bootstrap Angular Modules later. the reason of importing this file is to load modules whatever you want.-->
+    <script src="../bootstrapApp.js" defer async="true"></script>
+    <title>this is paging directive</title>
+</head>
+<body>
+<div ng-controller="indexController" class="padding60">
+    <table class="tableStyle">
+        <thead>
+        <tr>
+            <th width="20%">head1</th>
+            <th width="20%">head2</th>
+            <th width="20%">head3</th>
+            <th width="20%">head4</th>
+            <th width="20%">head5</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="result in results track by $index">
+            <td ng-bind="'item'+result"></td>
+            <td ng-bind="'item'+result"></td>
+            <td ng-bind="'item'+result"></td>
+            <td ng-bind="'item'+result"></td>
+            <td ng-bind="'item'+result"></td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- callback is function binding. It binds your own business implements.(required) -->
+    <!-- callback 绑定一个函数，函数为你自定义的实现 .(必须) -->
+    <!-- page-size/current-page are two-way binding attributes. (required) -->
+    <!-- page-size/current-page 是双向绑定属性. (required) -->
+    <!-- total-count is a one-way binding attributes,because it's used to render paging directive and it's value invariant inside the directive -->
+    <!-- total-count 是一个单向绑定属性，因为它仅用与刷新分页控件，在分页内部，其值不会变化 -->
+    <!-- page-size-option allows you define your pageSize selector options. It must separated by ','.(optional) (default:10,20,50,100)  -->
+    <!-- paging-btn-num allows you define the button number you want. It must be a positive integer num.(optional) (default:7)  -->
+    <!-- paging-btn-num 可以指定展示多少个分页按钮，默认7个.(optional).  -->
+    <ng:pagination callback="paging(data)" total-count="{{totalCount}}" page-size="pageSize" current-page="currentPage"
+                   page-size-option="10,15,20,50" paging-btn-num="11"></ng:pagination>
+</div>
+
+</div>
+</body>
+</html>
